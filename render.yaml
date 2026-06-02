@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: skypulse
+    runtime: java
+    buildCommand: "./mvnw package -DskipTests"
+    startCommand: "java -jar target/weatherapp-0.0.1-SNAPSHOT.jar"
