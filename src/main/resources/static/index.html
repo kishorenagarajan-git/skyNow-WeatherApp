@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyNow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="clouds-bg">
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="cloud c4"></div>
+    </div>
+
+    <!-- TOP HEADER -->
+    <div class="app-header">
+        <h1 class="app-title">⛅ SkyNow</h1>
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off" />
+            <button onclick="getWeather()">Search</button>
+        </div>
+        <button id="locationBtn" onclick="getLocationWeather()">📍 My Location</button>
+        <div id="errorMsg" class="error-msg hidden"></div>
+    </div>
+
+    <!-- PAGES -->
+    <div class="pages-wrapper">
+
+        <!-- PAGE 1: Weather -->
+        <div class="page active" id="page-weather">
+            <div id="weatherPlaceholder" class="placeholder-box">
+                <div class="placeholder-icon">🌍</div>
+                <p>Search a city to see weather</p>
+            </div>
+            <div id="weatherMain" class="weather-main hidden">
+                <img id="weatherIcon" src="" alt="icon" />
+                <h2 id="cityName">--</h2>
+                <p id="weatherDesc">--</p>
+                <div id="weatherTemp" class="big-temp">--</div>
+                <div class="minmax-row">
+                    <span id="tempMin">--</span>
+                    <span class="sep">|</span>
+                    <span id="tempMax">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: Details -->
+        <div class="page" id="page-details">
+            <div class="page-heading">📊 Weather Details</div>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <span class="d-icon">🌡️</span>
+                    <span class="d-label">Feels Like</span>
+                    <strong id="feelsLike">--</strong>
+                </div>
+                <div class="detail-card">
+                    <span class="d-icon">💧</span>
+                    <span class="d-label">Humidity</span>
+                    <strong id="humidity">--</strong>
+                </div>
+                <div class="detail-card">
+                    <span class="d-icon">💨</span>
+                    <span class="d-label">Wind Speed</span>
+                    <strong id="windSpeed">--</strong>
+                </div>
+                <div class="detail-card">
+                    <span class="d-icon">🔵</span>
+                    <span class="d-label">Pressure</span>
+                    <strong id="pressure">--</strong>
+                </div>
+                <div class="detail-card">
+                    <span class="d-icon">🌅</span>
+                    <span class="d-label">Sunrise</span>
+                    <strong id="sunrise">--</strong>
+                </div>
+                <div class="detail-card">
+                    <span class="d-icon">🌇</span>
+                    <span class="d-label">Sunset</span>
+                    <strong id="sunset">--</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Forecast -->
+        <div class="page" id="page-forecast">
+            <div class="page-heading">📅 5-Day Forecast</div>
+            <div id="forecastList" class="forecast-list">
+                <p class="empty-msg">Search a city to see forecast</p>
+            </div>
+        </div>
+
+        <!-- PAGE 4: Tips -->
+        <div class="page" id="page-tips">
+            <div class="page-heading">💡 Tips & Suggestions</div>
+            <div id="tipsList" class="tips-list">
+                <div class="tip-card">
+                    <span>🌤️</span>
+                    <p>Search a city to get weather tips!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TAB BAR -->
+    <div class="tab-bar">
+        <div class="tab active" onclick="switchTab('weather', this)">
+            <span class="tab-icon">🌤️</span>
+            <span class="tab-label">Weather</span>
+        </div>
+        <div class="tab" onclick="switchTab('details', this)">
+            <span class="tab-icon">📊</span>
+            <span class="tab-label">Details</span>
+        </div>
+        <div class="tab" onclick="switchTab('forecast', this)">
+            <span class="tab-icon">📅</span>
+            <span class="tab-label">Forecast</span>
+        </div>
+        <div class="tab" onclick="switchTab('tips', this)">
+            <span class="tab-icon">💡</span>
+            <span class="tab-label">Tips</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
